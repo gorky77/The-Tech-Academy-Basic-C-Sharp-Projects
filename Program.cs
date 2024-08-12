@@ -1,56 +1,33 @@
 ﻿using System;
 
-namespace PackageExpress
+namespace StringArrayApp
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // Displaying the welcome message
-            Console.WriteLine("Welcome to Package Express. Please follow the instructions below.");
+            // Initialize a one-dimensional array of strings
+            string[] myArray = { "Gorkem", "Whats", "Doing", "Here" };
 
-            // Prompting user for the package weight
-            Console.WriteLine("Please enter the package weight:");
-            int weight = Convert.ToInt32(Console.ReadLine());
+            // Ask the user to input some text
+            Console.WriteLine("how you can do that:");
+            string userInput = Console.ReadLine();
 
-            // Checking if the weight is greater than 50
-            if (weight > 50)
+            // Loop through the array and append the user's input to each string
+            for (int i = 0; i < myArray.Length; i++)
             {
-                Console.WriteLine("Package too heavy to be shipped via Package Express. Have a good day.");
-                Console.ReadLine();
-
+                myArray[i] += userInput;
             }
 
-            // Prompting user for the package width
-            Console.WriteLine("Please enter the package width:");
-            int width = Convert.ToInt32(Console.ReadLine());
-
-            // Prompting user for the package height
-            Console.WriteLine("Please enter the package height:");
-            int height = Convert.ToInt32(Console.ReadLine());
-
-            // Prompting user for the package length
-            Console.WriteLine("Please enter the package length:");
-            int length = Convert.ToInt32(Console.ReadLine());
-
-            // Checking if the total dimensions are greater than 50
-            int totalDimensions = width + height + length;
-            if (totalDimensions > 50)
+            // Loop through the array again and print each string
+            foreach (string str in myArray)
             {
-                Console.WriteLine("Package too big to be shipped via Package Express.");
-                Console.ReadLine();
+                Console.WriteLine(str);
             }
 
-            // Calculating the quote
-            int dimensionsProduct = width * height * length;
-            decimal quote = (dimensionsProduct * weight) / 100m;
-
-            // Displaying the quote to the user
-            Console.WriteLine("Your estimated total for shipping this package is: $" + quote.ToString("0.00"));
-            Console.WriteLine("Thank you!");
-
-            // Keeping the console window open
+            // Wait for user input before closing the console
             Console.ReadLine();
         }
     }
 }
+
